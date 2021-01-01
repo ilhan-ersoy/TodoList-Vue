@@ -44,10 +44,11 @@ const app = new Vue({
       },
       addNewTodo(){
           if(this.newTodo.Title !== ''){
-              this.newTodo.list = 'Genel';
+              this.newTodo.List = this.activeListItem.Title;
               this.newTodo.Id = this.dataList.length +1;
               this.dataList.push(this.newTodo);
               this.resetTodo();
+              this.changeListItem(this.activeListItem.Id);
           }
       },
       addNewList(){
@@ -76,7 +77,7 @@ const app = new Vue({
     },
     computed:{
         todoList(){
-            return this.selectedDataList.filter(todo=>todo.Status === false); // yapilmamis todolar
+                return this.selectedDataList.filter(todo=>todo.Status === false); // yapilmamis todolar
         },
         todoListFinished(){
             return this.selectedDataList.filter(todo=>todo.Status === true); // yapilmis todolar
