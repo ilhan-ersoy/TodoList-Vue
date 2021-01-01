@@ -62,12 +62,12 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-12">
-                        <form class="row">
+                        <form class="row" @submit.prevent ="addNewTodo">
                             <div class="col-12 col-sm pr-sm-0">
-                                <input type="text" class="form-control" id="todoItem" placeholder="Write todo item">
+                                <input type="text" class="form-control" id="todoItem" placeholder="Yapılacak bir şey yazın.." v-model="newTodo.Title">
                             </div>
                             <div class="col-12 col-sm-auto">
-                                <button type="submit" class="btn btn-primary btn-block mb-2">Submit</button>
+                                <button type="submit" class="btn btn-primary btn-block mb-2" :disabled="!newTodo.Title">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -89,7 +89,7 @@
                         </td>
                         <td class="text-left w-100">{{item.Title}}</td>
                         <td class="text-right">
-                            <a href="#"  class="btn btn-sm btn-danger">
+                            <a href="#"  class="btn btn-sm btn-danger" @click="deleteTodo(item.Id)">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </td>
