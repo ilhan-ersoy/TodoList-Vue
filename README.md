@@ -2,9 +2,7 @@
 
 
 
-## Simple TodoList with Vue
-
-ASDASDASD
-
+## TodoList with Vue
+ 
 ## http://todolistvue.epizy.com/
 
